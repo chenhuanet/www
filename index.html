@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>照片展示</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">尘画</h1>
+    <div class="filters">
+      <select id="province">
+        <option value="">省份</option>
+      </select>
+      <select id="city">
+        <option value="">城市</option>
+      </select>
+      <select id="year">
+        <option value="">年份</option>
+      </select>
+      <select id="season">
+        <option value="">季节</option>
+      </select>
+      <input type="text" id="search" placeholder="行到水穷处，坐看云起时">
+    </div>
+  </header>
+  <main id="gallery"></main>
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+    <div id="caption"></div>
+  </div>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
