@@ -48,7 +48,7 @@ window.onload = function() {
   });
 
   // 渲染图片库
-  renderGallery(photos, true);
+  renderGallery(photos);
 
   // 添加事件监听器
   provinceSelect.addEventListener('change', filterPhotos);
@@ -68,31 +68,17 @@ window.onload = function() {
 };
 
 // 渲染图片库
-function renderGallery(photosToRender, isRandom = false) {
+function renderGallery(photosToRender) {
   const gallery = document.getElementById('gallery');
   gallery.innerHTML = '';
 
-  let displayPhotos = [...photosToRender];
-  if (isRandom) {
-    // 随机打乱数组并取前6张
-    displayPhotos = displayPhotos
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 6);
-  }
-
-  displayPhotos.forEach(photo => {
+  photosToRender.forEach(photo => {
     const item = document.createElement('div');
     item.className = 'gallery-item';
     
     const img = document.createElement('img');
-    img.src = photo.src + '?w=100&q=10';
+    img.src = photo.src;
     img.alt = photo.description;
-    img.className = 'loading-img';
-    img.onload = function() {
-      this.src = photo.src;
-      this.classList.remove('loading-img');
-      this.classList.add('loaded-img');
-    };
     img.dataset.province = photo.province;
     img.dataset.city = photo.city;
     img.dataset.date = photo.date;
